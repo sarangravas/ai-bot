@@ -15,11 +15,12 @@ def AI_bot():
         user_msg=request.form.get("msg")
         model=ChatGoogleGenerativeAI(
         Model="gemini-2.5-flash",
-        api_key=os.getnew("GOOGLE_API_KEY")
+        api_key=os.getenv("GOOGLE_API_KEY")
         )
         reply=model.invoke(user_msg).content
     return render_template("index.html",reply=reply,user_msg=user_msg)
 
 
 if __name__=="__main__":
+
    app.run(port=4000)
